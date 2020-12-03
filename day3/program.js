@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 // part 1
 const getCurrentCell = (row, index) => {
@@ -11,7 +12,7 @@ const getCurrentCell = (row, index) => {
 };
 
 function getCount(offsetRight, offsetDown = 1) {
-    const fileData = fs.readFileSync('./map.txt', 'utf8');
+    const fileData = fs.readFileSync(path.join(__dirname, 'map.txt'), 'utf8');
     // transform map data to 2d matrix
     const mapArray = fileData.split(/\n/).map((fileDatum) => fileDatum.split(''));
     // external counter; upper limit is row.length
